@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nidra | Cabañas y Restauración de Piscinas</title>
+
+    <!-- Fuente: Poppins (Tipografía solicitada) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS (Estilos modernos) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Librería de Iconos (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Librería de Animaciones al Scroll (AOS) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Configuración de Colores Personalizados -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nidra: {
+                            dark: '#0B1120',   /* Azul Oscuro Profundo (Casi negro/Navy) */
+                            green: '#1E40AF',  /* Azul secundario fuerte (antes verde) */
+                            wood: '#D4AF37',   /* Dorado Elegante (antes madera) */
+                            sand: '#FFFFFF',   /* Blanco Puro (antes arena) */
+                            pool: '#38bdf8',   /* Azul Claro Piscina */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Poppins', 'sans-serif'], /* Forzamos Poppins también en serif */
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos para el efecto Parallax en el Hero */
+        .hero-bg {
+            /* ==========================================================================
+               CAMBIAR IMAGEN PRINCIPAL AQUI (URL dentro de url('...'))
+               ==========================================================================
+            */
+            background-image: linear-gradient(rgba(0, 5, 20, 0.5), rgba(0, 5, 20, 0.5)), url('img/portada.png');
+            background-attachment: fixed;
+            /* Efecto Parallax */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body class="bg-nidra-sand text-gray-800 smooth-scroll overflow-x-hidden">
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-50 bg-nidra-dark/95 backdrop-blur-sm text-white py-4 shadow-lg transition-all duration-300"
+        id="navbar">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2">
+                <img src="img/logo1.png" alt="Nidra Logo" class="h-12 w-auto object-contain">
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#inicio" class="hover:text-nidra-wood transition">INICIO</a>
+                <a href="#servicios" class="hover:text-nidra-wood transition">SERVICIOS</a>
+                <a href="#galeria" class="hover:text-nidra-wood transition">PROYECTOS</a>
+                <a href="#contacto" class="hover:text-nidra-wood transition">CONTACTO</a>
+            </div>
+            <!-- Botón de Menú Móvil -->
+            <button class="md:hidden text-white"
+                onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-nidra-dark absolute w-full p-4 border-t border-gray-700">
+            <a href="#inicio" class="block py-2 hover:text-nidra-wood">Inicio</a>
+            <a href="#servicios" class="block py-2 hover:text-nidra-wood">Servicios</a>
+            <a href="#galeria" class="block py-2 hover:text-nidra-wood">Proyectos</a>
+            <a href="#contacto" class="block py-2 hover:text-nidra-wood">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Portada) -->
+    <header id="inicio" class="hero-bg h-screen flex items-center justify-center text-center text-white relative">
+        <div class="px-6" data-aos="fade-up" data-aos-duration="1500">
+            <p class="text-lg md:text-xl font-light tracking-[0.2em] mb-4 uppercase">Diseño & Construcción</p>
+            <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight">
+                Construimos instantes <br> que duran <span class="text-nidra-wood">para siempre.</span>
+            </h1>
+            <p class="text-lg max-w-2xl mx-auto mb-10 text-gray-200">
+                Expertos en construcción de cabañas rústicas y restauración integral de piscinas.
+            </p>
+            <button onclick="enviarWhatsapp('general')"
+                class="bg-nidra-wood hover:bg-amber-700 text-white py-4 px-10 rounded-full font-semibold transition transform hover:scale-105 shadow-xl flex items-center gap-2 mx-auto">
+                <i data-lucide="message-circle"></i> Cotizar Ahora
+            </button>
+        </div>
+
+        <!-- Icono de scroll -->
+        <div class="absolute bottom-10 animate-bounce">
+            <i data-lucide="chevron-down" class="w-8 h-8 text-white"></i>
+        </div>
+    </header>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-nidra-green font-bold tracking-wider uppercase text-sm">Nuestros Servicios</span>
+                <h2 class="text-4xl font-serif font-bold text-nidra-dark mt-2">Especialistas en Detalles</h2>
+                <div class="w-24 h-1 bg-nidra-wood mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+
+                <!-- Tarjeta Cabañas -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-2xl" data-aos="fade-right">
+                    <div class="h-96 overflow-hidden">
+                        <!-- Imagen Cabaña -->
+                        <img src="img/1.png" alt="Construcción de Cabañas"
+                            class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+                        <h3 class="text-3xl font-serif text-white mb-2">Construcción de Cabañas</h3>
+                        <p class="text-gray-300 mb-6 line-clamp-2">Diseños únicos en madera y piedra que se integran con
+                            la naturaleza. Creamos espacios cálidos y duraderos.</p>
+                        <button onclick="enviarWhatsapp('cabana')"
+                            class="bg-white text-nidra-dark py-3 px-6 rounded-lg font-semibold hover:bg-nidra-wood hover:text-white transition w-fit flex items-center gap-2">
+                            Cotizar Cabaña <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Piscinas -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-2xl" data-aos="fade-left">
+                    <div class="h-96 overflow-hidden">
+                        <!-- Imagen Piscina -->
+                        <img src="img/picina.jpg" alt="Restauración de Piscinas"
+                            class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+                        <h3 class="text-3xl font-serif text-white mb-2">Restauración de Piscinas</h3>
+                        <p class="text-gray-300 mb-6 line-clamp-2">Renovación completa, reparación de grietas, cambio de
+                            cerámica y sistemas de filtrado modernos.</p>
+                        <button onclick="enviarWhatsapp('piscina')"
+                            class="bg-nidra-pool text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-600 transition w-fit flex items-center gap-2">
+                            Cotizar Piscina <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Galería / Por qué elegirnos -->
+    <section id="galeria" class="py-24 bg-nidra-dark text-white relative">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <span class="text-nidra-wood font-bold tracking-wider uppercase mb-2 block">Nosotros</span>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6">Materializando sueños en Ecuador</h2>
+                    <p class="text-gray-300 mb-6 text-lg leading-relaxed">
+                        En Nidra, no solo construimos estructuras, creamos experiencias. Nuestro equipo de expertos
+                        combina técnicas tradicionales con ingeniería moderna para garantizar durabilidad y estética.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="text-nidra-wood"></i>
+                            Materiales de primera calidad</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="text-nidra-wood"></i>
+                            Diseño arquitectónico personalizado</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="text-nidra-wood"></i>
+                            Garantía en restauración</li>
+                    </ul>
+                    <button onclick="enviarWhatsapp('general')"
+                        class="border border-white hover:bg-white hover:text-nidra-dark text-white py-3 px-8 rounded transition duration-300">
+                        Hablemos de tu proyecto
+                    </button>
+                </div>
+
+                <!-- Galería Grid -->
+                <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
+                    <!-- 
+                        ==========================================================================
+                        CAMBIAR IMAGENES DE GALERIA AQUI
+                        ==========================================================================
+                     -->
+                    <img src="img/Gemini_Generated_Image_4cmm1k4cmm1k4cmm.png"
+                        class="rounded-lg shadow-lg transform translate-y-8 object-cover h-64 w-full">
+                    <img src="img/Gemini_Generated_Image_504m6d504m6d504m.png"
+                        class="rounded-lg shadow-lg object-cover h-64 w-full">
+                    <img src="img/Gemini_Generated_Image_lnyrp0lnyrp0lnyr.png"
+                        class="rounded-lg shadow-lg transform translate-y-8 object-cover h-64 w-full">
+                    <img src="img/Gemini_Generated_Image_x7b7slx7b7slx7b7.png"
+                        class="rounded-lg shadow-lg object-cover h-64 w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contacto -->
+    <footer id="contacto" class="bg-[#111] text-gray-400 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center md:text-left">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3
+                        class="text-2xl font-serif text-white font-bold mb-4 flex items-center justify-center md:justify-start gap-2">
+                        <img src="img/logo1.png" alt="Nidra" class="h-32 w-auto">
+                    </h3>
+                    <p class="text-sm">Construcción y restauración profesional en Ecuador.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Contacto</h4>
+                    <p onclick="enviarWhatsapp('general')"
+                        class="mb-2 hover:text-white transition cursor-pointer flex justify-center md:justify-start gap-2">
+                        <i data-lucide="phone"></i> +593 98 427 2884
+                    </p>
+                    <p class="mb-2 flex justify-center md:justify-start gap-2">
+                        <i data-lucide="map-pin"></i> Ecuador
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Enlaces Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="hover:text-nidra-wood">Inicio</a></li>
+                        <li><a href="#servicios" class="hover:text-nidra-wood">Servicios</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-xs">
+                &copy; 2024 Nidra Construcciones. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de Funcionalidad -->
+
+    <!-- Inicializar Iconos -->
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <!-- Inicializar AOS (Animaciones) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true, /* La animación solo ocurre una vez */
+            offset: 100, /* Comienza la animación un poco antes */
+        });
+    </script>
+
+    <!-- Lógica de WhatsApp -->
+    <script>
+        function enviarWhatsapp(tipo) {
+            const telefono = "593984272884";
+            let mensaje = "";
+
+            if (tipo === 'cabana') {
+                mensaje = "Hola Nidra, estoy interesado en cotizar la construcción de una *Cabaña*. ¿Me podrían dar más información?";
+            } else if (tipo === 'piscina') {
+                mensaje = "Hola Nidra, necesito una cotización para la restauración de una *Piscina*. ¿Cuáles son los pasos a seguir?";
+            } else {
+                mensaje = "Hola Nidra, vi su página web y me gustaría recibir información sobre sus servicios.";
+            }
+
+            // Codificar el mensaje para URL
+            const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+
+            // Abrir en nueva pestaña
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+
+</html>
